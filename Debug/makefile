@@ -38,34 +38,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := Athena_Lab4_Interrupt
+BUILD_ARTIFACT_NAME := Athena-Lab4-Interrupt
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-Athena_Lab4_Interrupt.elf \
+Athena-Lab4-Interrupt.elf \
 
 MAP_FILES += \
-Athena_Lab4_Interrupt.map \
+Athena-Lab4-Interrupt.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-Athena_Lab4_Interrupt.list \
+Athena-Lab4-Interrupt.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: Athena_Lab4_Interrupt.elf secondary-outputs
+main-build: Athena-Lab4-Interrupt.elf secondary-outputs
 
 # Tool invocations
-Athena_Lab4_Interrupt.elf Athena_Lab4_Interrupt.map: $(OBJS) $(USER_OBJS) C:\Users\16513\Desktop\Lab_code\Athena_Lab4_Interrupt\STM32L496RGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Athena_Lab4_Interrupt.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\16513\Desktop\Lab_code\Athena_Lab4_Interrupt\STM32L496RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Athena_Lab4_Interrupt.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Athena-Lab4-Interrupt.elf Athena-Lab4-Interrupt.map: $(OBJS) $(USER_OBJS) /Users/twinhorse/Career/teaching/计算机系统能力训练II/Lab-repos/Athena-Lab4-Interrupt/STM32L496RGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Athena-Lab4-Interrupt.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/twinhorse/Career/teaching/计算机系统能力训练II/Lab-repos/Athena-Lab4-Interrupt/STM32L496RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Athena-Lab4-Interrupt.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -74,14 +74,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-Athena_Lab4_Interrupt.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "Athena_Lab4_Interrupt.list"
+Athena-Lab4-Interrupt.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "Athena-Lab4-Interrupt.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) Athena_Lab4_Interrupt.elf Athena_Lab4_Interrupt.list Athena_Lab4_Interrupt.map default.size.stdout
+	-$(RM) Athena-Lab4-Interrupt.elf Athena-Lab4-Interrupt.list Athena-Lab4-Interrupt.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
